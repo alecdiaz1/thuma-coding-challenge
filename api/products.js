@@ -25,14 +25,25 @@ export function makeMattress({ size }) {
   };
 }
 
-export const products = ["bed", "mattress"];
+export function makeNightstand({ color }) {
+  return {
+    name: "nightstand",
+    variation: {
+      color
+    }
+  };
+}
+
+export const products = ["bed", "mattress", "nightstand"];
 
 export const productConstructors = {
   bed: makeBed,
-  mattress: makeMattress
+  mattress: makeMattress,
+  nightstand: makeNightstand,
 };
 
 export const productVariation = {
   bed: ["color", "size"],
-  mattress: ["size"]
+  mattress: ["size"],
+  nightstand: ["color"]
 };

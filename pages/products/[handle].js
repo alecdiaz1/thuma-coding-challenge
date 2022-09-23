@@ -1,9 +1,10 @@
-import { useMemo, useState } from "react";
+import {useContext, useMemo, useState} from "react";
 import {
   productVariation,
   products,
   variationChoices
 } from "../../api/products";
+import cartContext from "../../contexts/CartContext";
 
 function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -24,6 +25,17 @@ export default function ProductPage({ handle }) {
       ...oldVariant,
       [attributeKey]: attributeValue
     }));
+  }
+
+  const { cart, setCart }  = useContext(cartContext)
+
+  function onAddToCart() {
+    const product = {
+      name: handle,
+      variation: chosenVariant,
+    }
+
+    setCart([...cart, product])
   }
 
   return (
@@ -73,6 +85,7 @@ export default function ProductPage({ handle }) {
             padding: "1em 2em",
             border: "1px solid gray"
           }}
+          onClick={() => onAddToCart()}
         >
           Add To Cart
         </button>

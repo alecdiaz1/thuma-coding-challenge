@@ -1,6 +1,11 @@
 import { getRandomCart } from "../api/cart";
+import CloseButton from "./CloseButton";
 
 export default function CartDebug({ cart, setCart }) {
+  const removeFromCart = (index) => {
+    setCart(cart.filter((item) => item !== cart[index]))
+  }
+
   return (
     <div
       style={{
@@ -30,6 +35,7 @@ export default function CartDebug({ cart, setCart }) {
               {`${cartItem.name} -- ${Object.keys(cartItem.variation)
                 .map((key) => cartItem.variation[key])
                 .join(" + ")} `}
+              <CloseButton onClick={() => removeFromCart(index)} />
             </li>
           ))
         )}

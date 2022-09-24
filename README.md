@@ -1,5 +1,19 @@
-# Thuma Code Challenge
+## Notes for step 6 - make it better
+- Made it so that all the variations must have a selection in order for the product to be added to the cart
 
+I have used a similar project structure before and found that it can be difficult to scale. It can get a little crazy digging through tens of files in components looking for something that uses a hook that's also located deep in the hooks folder. I've recently tried grouping files by feature, for example
+- src
+  - features
+    - product
+      - api
+        - some api.js
+      - components
+        - some component.jsx
+      - types
+      - utils
+
+I've found it nice in that when working on one feature, everything is easy to find since they're right next to each other. I still however have top-level folders for components, hooks, etc. that are used in many places. For a small take-home project like this though the current structure works perfectly fine.
+# Thuma Code Challenge
 Welcome to the Thuma Take Home Interview! The purpose of this exercise is to gauge your capacity to dive into a (mostly) working system and make modifications and extentions to it. The tasks are meant to be straightforward, with most people completing the tasks in less than 30 minutes. You may take as long as needed to complete the tasks, we're not keeping track. If you have any initial questions after reading this prompt, please reach out.
 
 ## Directory Structure

@@ -30,12 +30,16 @@ export default function ProductPage({ handle }) {
   const { cart, setCart }  = useContext(cartContext)
 
   function onAddToCart() {
-    const product = {
-      name: handle,
-      variation: chosenVariant,
-    }
+    if (Object.entries(chosenVariant).length === Object.entries(attributes).length) {
+      const product = {
+        name: handle,
+        variation: chosenVariant,
+      }
 
-    setCart([...cart, product])
+      setCart([...cart, product])
+    } else {
+      console.log('All attributes must have a selection')
+    }
   }
 
   return (
